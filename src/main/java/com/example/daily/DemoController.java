@@ -1,10 +1,10 @@
 package com.example.daily;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class DemoController {
@@ -15,7 +15,9 @@ public class DemoController {
     }
 
     @PostMapping("/move")
-    public String hello() {
+    public String hello(@RequestParam String name,@RequestParam String email, Model model) {
+        model.addAttribute("name", name);
+        model.addAttribute("email", email);
         return "hello";
     }
 

@@ -10,10 +10,10 @@
     <h2>ログイン画面</h2>
     <form th:action="@{/move}" method="post">
         <div>
-            <input type="text" placeholder="名前">
+            <input type="text" placeholder="名前" name="name">
         </div>
         <div>
-            <input type="text" placeholder="e-mail">
+            <input type="text" placeholder="e-mail" name="email">
         </div>
         <button type="submit">送信</button>
     </form>
