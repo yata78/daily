@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h2>ログイン画面</h2>
+    <form th:action="@{/move}" method="post">
+        <div>
+            <input type="text" placeholder="名前">
+        </div>
+        <div>
+            <input type="text" placeholder="e-mail">
+        </div>
+        <button type="submit">送信</button>
+    </form>
+</body>
+</html>
