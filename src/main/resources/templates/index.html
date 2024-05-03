@@ -7,13 +7,13 @@
 </head>
 <body>
 
-    <h2>ログイン画面</h2>
+    <h2>投稿画面</h2>
     <form th:action="@{/move}" method="post">
         <div>
-            <input type="text" placeholder="名前" name="name">
+            <p> 題名  :  <input type="text" placeholder="題名" name="name"> </p>
         </div>
         <div>
-            <input type="text" placeholder="e-mail" name="email">
+            <p> 出来事 : <input type="text" placeholder="出来事" name="email"> </p>
         </div>
         <button type="submit">送信</button>
     </form>
