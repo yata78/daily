@@ -8,14 +8,18 @@
 <body>
 
     <h2>投稿画面</h2>
-    <form th:action="@{/move}" method="post">
+    <form th:action="@{/create}" method="post">
         <div>
-            <p> 題名  :  <input type="text" placeholder="題名" name="name"> </p>
+            <p> 題名  :  <input type="text" placeholder="題名" name="eventName"> </p>
         </div>
         <div>
-            <p> 出来事 : <input type="text" placeholder="出来事" name="email"> </p>
+            <p> 出来事 : <input type="text" placeholder="出来事" name="eventDetail"> </p>
         </div>
         <button type="submit">送信</button>
+    </form>
+
+    <form th:action="@{/move}" method="post">
+        <button type="submit">全体</button>
     </form>
 </body>
 </html>

@@ -3,32 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Event List</title>
+    <style>
+        .container {
+            width: 80%;
+            margin: auto;
+            padding-top: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
 </head>
-<body>
-    <body class="container">
-        <h1>data</h1>
-    
+<body class="container">
+    <h1>Event Data</h1>
+    <table>
         <thead>
-            <th>ID</th>
-            <th>イベント名</th>
-            <th>イベント詳細</th>
-            <th>日付</th>
+            <tr>
+                <th>ID</th>
+                <th>イベント名</th>
+                <th>イベント詳細</th>
+                <th>日付</th>
+                <th>編集・削除</th>
+            </tr>
         </thead>
-        
-        <div>   
         <tbody>
-        <tr th:each="item : ${data}">
-            <td th:text="${item.id}"></td>
-            <td th:text="${item.eventName}"></td>
-            <td th:text="${item.eventDetail}"></td>
-            <td th:text="${item.eventDate}"></td>
-        </tr>
+            <form action="/edit" method="get">
+                <tr th:each="item : ${data}">
+                    <td th:text="${item.id}"></td>
+                    <td th:text="${item.eventName}"></td>
+                    <td th:text="${item.eventDetail}"></td>
+                    <td th:text="${item.eventDate}"></td>
+                    <td>
+                        <form action="/edit" method="get">
+                            <button type="submit" name="id" th:value="${item.id}">詳細</button>
+                        </form>
+                    </td>
+                </tr>
+            </form>
         </tbody>
-        </div>
-        <form th:action="@{/edit}" method="post" >
-            <button type="submit">編集</button>
-        </form>
-    </body>
+    </table>
 </body>
 </html>
