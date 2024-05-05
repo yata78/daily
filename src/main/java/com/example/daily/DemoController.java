@@ -21,7 +21,7 @@ public class DemoController {
     @PostMapping("/move")
     public ModelAndView hello(ModelAndView mav) {
         mav.setViewName("hello");
-        Iterable<dailyEv> list = repository.findAll();
+        Iterable<dailyEv> list = repository.findByIdAscData();
         mav.addObject("data", list);
         return mav;
     }
