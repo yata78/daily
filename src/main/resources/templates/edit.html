@@ -26,23 +26,27 @@
 </head>
 <body class="container">
     <h1>Event Data</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>イベント名</th>
-                <th>イベント詳細</th>
-                <th>日付</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr th:object="${data}">
-                <td th:text="${data.get().id}"></td>
-                <td th:text="${data.get().eventName}"></td>
-                <td th:text="${data.get().eventDetail}"></td>
-                <td th:text="${data.get().eventDate}"></td>
-            </tr>
-        </tbody>
-    </table>
+    <form action="edit" method="post">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>イベント名</th>
+                    <th>イベント詳細</th>
+                    <th>日付</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="text" th:value="${data.get().id}" name="id" readonly></td>
+                    <td><input type="text" th:value="${data.get().eventName}" name="eventName"></td>
+                    <td><input type="text" th:value="${data.get().eventDetail}" name="eventDetail"></td>
+                    <td><input type="date" th:value="${#dates.format(data.get().eventDate, 'yyyy-MM-dd')}" name="eventDate"></td>
+                    <td><button type="submit">変更</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
 </body>
 </html>
