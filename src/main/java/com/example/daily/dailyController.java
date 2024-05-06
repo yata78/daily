@@ -29,8 +29,12 @@ public class dailyController {
     }
 
     @RequestMapping(value = "/edit" , method = RequestMethod.POST)
-    public ModelAndView editEvent(ModelAndView mav, @ModelAttribute("dailyEv") dailyEv Ev) {
-        repository.saveAndFlush(Ev);
+    public ModelAndView editEvent(ModelAndView mav, @ModelAttribute("dailyEv") dailyEv Ev ,@RequestParam String action) {
+        if (action.equals("update")) {
+            repository.saveAndFlush(Ev);
+        } else if (action.equals("delete")) {
+            repository.deleteById(Ev.getId());
+        }
         Iterable<dailyEv> list = repository.findByIdAscData();
         mav.addObject("data", list);
         mav.setViewName("hello");
