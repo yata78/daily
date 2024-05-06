@@ -34,7 +34,8 @@
                     <th>イベント名</th>
                     <th>イベント詳細</th>
                     <th>日付</th>
-                    <th>操作</th>
+                    <th>操作1</th>
+                    <th>操作2</th>
                 </tr>
             </thead>
             <tbody>
@@ -43,7 +44,8 @@
                     <td><input type="text" th:value="${data.get().eventName}" name="eventName"></td>
                     <td><input type="text" th:value="${data.get().eventDetail}" name="eventDetail"></td>
                     <td><input type="date" th:value="${#dates.format(data.get().eventDate, 'yyyy-MM-dd')}" name="eventDate"></td>
-                    <td><button type="submit">変更</button></td>
+                    <td><button type="submit" name="action" value="update">変更</button></td>
+                    <td><button type="submit" name="action" value="delete">削除</button></td>
                 </tr>
             </tbody>
         </table>
