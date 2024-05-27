@@ -13,10 +13,10 @@ public class DemoController {
     @Autowired
     dailyEvRepository repository;
     
-    @RequestMapping("/")
-    public String index() {
-        return "index";
-    }
+    // @RequestMapping("/")
+    // public String index() {
+    //     return "index";
+    // }
 
     @PostMapping("/move")
     public ModelAndView hello(ModelAndView mav) {
