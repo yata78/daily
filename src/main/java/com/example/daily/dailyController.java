@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.fasterxml.jackson.databind.deser.impl.CreatorCandidate.Param;
+import org.springframework.web.bind.annotation.GetMapping;
+
 
 @Controller
 public class dailyController {
@@ -51,5 +53,12 @@ public class dailyController {
         mav.addObject("data", list);
         return mav;
     }
+
+    @GetMapping("edpi")
+    public ModelAndView getMethodName(ModelAndView mav) {
+        mav.setViewName("edpi");
+        return mav;
+    }
+    
 
 }
